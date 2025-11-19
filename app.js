@@ -23,10 +23,13 @@
 // Invoke the init function to reset all state variables to their initial values.
 
 /* ----- CONSTANTS ----- */
+const listOfWords = ['']
 
 /* ----- VARIABLES/STATE ----- */
 
 /* ----- CACHED ELEMENTS ----- */
+
+const guessEl = document.querySelector('.guess');
 
 /* ----- FUNCTIONS ----- */
 

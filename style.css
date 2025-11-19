@@ -12,10 +12,60 @@ body {
     background-repeat: repeat;
     background-size: cover;
     color: white;
-    font-family: "Pixelify Sans", sans-serif;
+    font-family: "Silkscreen", sans-serif;
     font-size: 1.5em;
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+    margin: 0;
+}
+
+h1 {
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.game-rules {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+
+.rules {
+    text-align: center;
+    padding: 0 70px;
+    margin: 10px 0;
+
 }
 
 .space-cat {
 
+}
+
+.button-element {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.guess-btn {
+    padding: 0.5em;
+    border-radius: 50px;
+    font-size: 1.5rem;
+    font-family: "Silkscreen", sans-serif;
+}
+
+.hide {
+    display: none;
 }

@@ -3,35 +3,56 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap"
       rel="stylesheet"
     />
+
     <title>Spaceman</title>
+
     <link rel="stylesheet" href="style.css" />
     <script defer src="app.js"></script>
   </head>
+
   <body>
     <h1 class="game-title">SPACECAT</h1>
-    <section class="game-rules-container">
-      <h2 class="game-rules-header">HOW TO PLAY:</h2>
-      <p class="rules">
-        Guess a letter and try to solve the word before the kitty launches into
-        space!
-      </p>
-    </section>
-    <section class="game-counter">
-      <h3 class="guesses-left">🚀 Guesses left before lift off:</h3>
-      <img
-        class="space-cat"
-        src="assets/nyan-cat-png-image.png"
-        alt="Cat flying with rainbow behind it"
-      />
-    </section>
-    <section class="game-input">
-      <h3 class="guess">Guess a letter: <input type="text" id="letter" /></h3>
-    </section>
+
+    <div class="game-container">
+      <section class="game-rules">
+        <h2 class="game-rules-header">HOW TO PLAY:</h2>
+        <p class="rules">
+          Guess a letter and try to solve the word before the kitty launches
+          into space!
+        </p>
+        <img
+          class="space-cat"
+          src="assets/nyan-cat-png-image.png"
+          alt="Cat flying with rainbow behind it"
+        />
+      </section>
+
+      <section class="guesses">
+        <p class="message"></p>
+        <p class="word-in-progress"></p>
+        <p class="remaining">You have <span>8 guesses</span> remaining.</p>
+        <ul class="guessed-letters"></ul>
+      </section>
+
+      <section class="guess-input-section">
+        <form class="guess-form">
+          <label for="letter">Type one letter:</label>
+          <input type="text" id="letter" name="letter" class="letter" />
+          <div class="button-element">
+            <button class="guess-btn">Guess!</button>
+          </div>
+        </form>
+
+        <button class="play-again hide">Play Again!</button>
+      </section>
+    </div>
   </body>
 </html>
