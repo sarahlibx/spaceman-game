@@ -8,8 +8,8 @@
 
 body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://t3.ftcdn.net/jpg/05/46/46/88/360_F_546468872_b9emNBQeVDLbBqicXaFyoBUwutWcHmbl.jpg');
-    position: center;
-    background-repeat: repeat;
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     color: white;
     font-family: "Silkscreen", sans-serif;
@@ -57,6 +57,7 @@ h1 {
     justify-content: center;
     align-items: center;
 }
+
 .word-display .letter {
     width: 28px;
     font-size: 2rem;
@@ -67,7 +68,6 @@ h1 {
     border-bottom: 3px solid #000;
 }
 .word-display .letter.guessed {
-    margin: -40px 0 35px;
     border-color: transparent;
 }
 .game-box h4 {
@@ -91,6 +91,7 @@ h1 {
 }
 
 :where(.game-modal, .keyboard) button {
+    font-family: "Silkscreen", sans-serif;
     color: #fff;
     border: none;
     outline: none;
@@ -99,18 +100,27 @@ h1 {
     font-weight: 600;
     border-radius: 4px;
     text-transform: uppercase;
-    background: #5eba72;
+    background: #f053d6;
 }
+
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(9, 1fr);
+    gap: 5px;
+}
+
 .keyboard button {
     padding: 7px;
     width: calc(100% / 9 - 5px);
 }
+
 .keyboard button[disabled] {
     pointer-events: none;
     opacity: 0.6;
 }
-:where(.game-modal, .keyboard) button:hover {
-    background: #8df3a3;
+
+.keyboard button:hover {
+    background: #ef3a92;
 }
 
 .game-modal {
@@ -123,20 +133,25 @@ h1 {
     pointer-events: none;
     background: rgba(0, 0, 0, 0.6);
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     padding: 0 10px;
     transition: opacity 0.4s ease;
+    text-align: center;
 }
 
 .game-modal.show {
     opacity: 1;
     pointer-events: auto;
-    transition: opacity 0.4s 0.4s ease;
+    /* transition: opacity 0.4s 0.4s ease; */
 }
 
-.game-modal img[src="images/victory.gif"] {
-    margin-left: -10px;
+.game-modal img {
+    max-width: 300px;
+    height: auto; 
+    display: block;
+    margin: 0 auto 20px;
+
 }
 .game-modal h4 {
     font-size: 1.53rem;
@@ -152,4 +167,14 @@ h1 {
 }
 .game-modal button {
     padding: 12px 23px;
+    background-color: rgb(109, 228, 109)
+}
+
+.modal-content {
+    background: #1a1a1a;
+    padding: 20px 30px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
 }

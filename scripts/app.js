@@ -15,7 +15,7 @@ const guessesTextEl = document.querySelector('.guesses-text b');
 const keyboardDivEl = document.querySelector('.keyboard');
 const remainingGuessesEl = document.querySelector('.guesses-text');
 const gameModalEl = document.querySelector('.game-modal');
-const playAgainBtnEl = document.querySelector('button');
+const playAgainBtnEl = document.querySelector('.play-again');
 const catLaunchEl = document.querySelector('.space-cat');
 
 /* ----- FUNCTIONS ----- */
@@ -63,7 +63,36 @@ for (let i = 97; i <= 122; i++) {
     button.addEventListener('click', (e) => initGame(e.target, String.fromCharCode(i)));
 }
 
+// handle game logic when letter is clicked
+const initGame = (button, clickedLetter) => {
+    // checking if clicken letter is in the currentWord
+    if(currentWord.includes(clickedLetter)) {
+        // update the displayed letters if clicked is correct
+        [...currentWord].forEach((letter, index) => {
+           if (letter === clickedLetter) {
+                correctLetters.push(letter);
+                wordDisplayEl.querySelectorAll('li')[index].innerText = letter;
+                wordDisplayEl.querySelectorAll('li')[index].classList.add('guessed');
+           } 
+        });
+    } else {
+        // update wrong guess count if letter guessed is incorrect
+        wrongGuessCount++;
+    }
+    // disable the clicked button when guessed
+    button.disabled = true;
+    // update the displayed guess count
+    guessesTextEl.innerText = `${wrongGuessCount} / ${maxGuesses}`;
+
+    // check if game should end based on win or lose conditions
+    if (wrongGuessCount === maxGuesses)    
+        return gameOver(false);
+    if (correctLetters.length === currentWord.length) return gameOver(true);
+}
+
 // starting the game with a random word
 getRandomWord();
 
 /* ----- EVENT LISTENERS ----- */
+// event listener for play again button
+playAgainBtnEl.addEventListener('click', getRandomWord);
