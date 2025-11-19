@@ -15,18 +15,28 @@
     <title>Spaceman</title>
 
     <link rel="stylesheet" href="style.css" />
-    <script defer src="app.js"></script>
+    <script defer src="scripts/word-list.js"></script>
+    <script defer src="scripts/app.js"></script>
   </head>
 
   <body>
+    <section class="game-modal">
+      <div class="modal-content">
+        <img src="assets/lost.gif" alt="Game Over Gif" class="game-over" />
+        <h4>Game Over!</h4>
+        <p>The correct word was: <b>rainbow</b></p>
+        <button class="button">Play again?</button>
+      </div>
+    </section>
+
     <h1 class="game-title">SPACECAT</h1>
 
     <div class="game-container">
       <section class="game-rules">
         <h2 class="game-rules-header">HOW TO PLAY:</h2>
         <p class="rules">
-          Guess a letter and try to solve the word before the kitty launches
-          into space!
+          Guess a letter and try to solve the word to help the kitty launch into
+          space!
         </p>
         <img
           class="space-cat"
@@ -35,23 +45,11 @@
         />
       </section>
 
-      <section class="guesses">
-        <p class="message"></p>
-        <p class="word-in-progress"></p>
-        <p class="remaining">You have <span>8 guesses</span> remaining.</p>
-        <ul class="guessed-letters"></ul>
-      </section>
-
-      <section class="guess-input-section">
-        <form class="guess-form">
-          <label for="letter">Type one letter:</label>
-          <input type="text" id="letter" name="letter" class="letter" />
-          <div class="button-element">
-            <button class="guess-btn">Guess!</button>
-          </div>
-        </form>
-
-        <button class="play-again hide">Play Again!</button>
+      <section class="game-box">
+        <ul class="word-display"></ul>
+        <h4 class="hint-text">Hint: <b></b></h4>
+        <h4 class="guesses-text">Incorrect guesses: <b></b></h4>
+        <div class="keyboard"></div>
       </section>
     </div>
   </body>
