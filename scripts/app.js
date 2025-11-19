@@ -1,20 +1,3 @@
-// Add event listeners - use delegated event listeners to listen to multiple elements with a single listener.
-    // Using the event listeners set up, assign the user's choice to the variable for the user's choice
-    // Invoke get player choice function from play function
-// Invoke the init function used to initialize all state variables.
-// Invoke the primary render function that transfers all state variables to the DOM.
-    // Render the game message to the DOM
-// Wait for the user to make letter selection
-// Update all state variables with the correct values depending on the user’s choice.
-    // add letter to DOM if part of word
-    // reduce guesses to DOM if not part of word
-    // eliminate that letter from guesses to avoid duplicate guessing letter
-// Invoke the primary render function.
-// Wait for the user to click the “Play Again” button.
-    // reset users guesses to nothing
-    // reset game message & status
-// Invoke the init function to reset all state variables to their initial values.
-
 /* ----- CONSTANTS ----- */
 const listOfWords = ['']
 const maxGuesses = 6;
@@ -69,6 +52,15 @@ const gameOver = (isWin) => {
     gameModalEl.querySelector('h4').innerText = isWin ? 'Congrats! Nyan is on the way to space' : 'Game Over, Nyan is researching new ways to become a spacecat.';
     gameModalEl.querySelector('p').innerHTML = `${modalText} <b>${currentWord}<b>`;
     gameModalEl.classList.add('show');
+}
+
+// keyboard buttons via for loop
+for (let i = 97; i <= 122; i++) {
+    const button = document.createElement('button');
+    button.innerText = String.fromCharCode(i);
+    keyboardDivEl.appendChild(button);
+    // event listener for each button
+    button.addEventListener('click', (e) => initGame(e.target, String.fromCharCode(i)));
 }
 
 // starting the game with a random word
